@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: distrecon-web
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     ports:
       - "8000:8000"
     environment:
@@ -30,7 +30,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: distrecon-worker
-    command: celery -A tasks worker --loglevel=info --concurrency=2 -E
+    command: celery -A app.tasks worker --loglevel=info --concurrency=2 -E
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
@@ -48,7 +48,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: distrecon-flower
-    command: celery -A tasks flower --port=5555
+    command: celery -A app.tasks flower --port=5555
     ports:
       - "5555:5555"
     environment:

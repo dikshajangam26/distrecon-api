@@ -2,8 +2,8 @@ import os
 
 from celery import Celery
 
-from job_store import update_job_status, update_job_error
-from pipeline import PipelineError, run_reconstruction_pipeline
+from app.job_store import update_job_status, update_job_error
+from app.pipeline import PipelineError, run_reconstruction_pipeline
 
 
 CELERY_BROKER_URL = os.getenv(

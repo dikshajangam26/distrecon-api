@@ -4,8 +4,8 @@ import shutil
 
 from fastapi import FastAPI, UploadFile, File, HTTPException, status
 
-from job_store import create_job, get_job
-from tasks import reconstruct_scene
+from app.job_store import create_job, get_job
+from app.tasks import reconstruct_scene
 
 
 app = FastAPI(
