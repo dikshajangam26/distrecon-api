@@ -118,7 +118,7 @@ def extract_frames_from_video(video_path: Path, images_dir: Path):
             "-i",
             str(video_path),
             "-vf",
-            "fps=0.5",
+            "fps=2",
             str(frame_pattern),
         ],
         "Extract frames from video",
