@@ -30,7 +30,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: distrecon-worker
-    command: celery -A tasks worker --loglevel=info --concurrency=2
+    command: celery -A tasks worker --loglevel=info --concurrency=2 -E
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
@@ -42,3 +42,23 @@ services:
       - ./data:/app/data
     depends_on:
       - redis
+
+  flower:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: distrecon-flower
+    command: celery -A tasks flower --port=5555
+    ports:
+      - "5555:5555"
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_DB: 1
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+      - worker
