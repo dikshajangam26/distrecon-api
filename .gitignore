@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# FastAPI / local server
+*.log
+
+# Project data
+data/uploads/
+data/outputs/
+
+# Large video/model/output files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.ply
+*.obj
+*.glb
+*.ckpt
+*.pt
+*.pth
+
+# Cache folders
+.cache/
+.pytest_cache/
+.mypy_cache/
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
