@@ -1,42 +1,54 @@
-# Python
+# Python cache
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 .Python
 
-# Virtual environment
+# Virtual environments
 .venv/
 venv/
 env/
 
 # Environment variables
 .env
+.env.*
 
-# FastAPI / local server
+# Logs
 *.log
 
-# Project data
+# Local project data
 data/uploads/
 data/outputs/
 
-# Large video/model/output files
+# Uploaded/raw video files
 *.mp4
 *.mov
 *.avi
 *.mkv
 *.webm
+
+# 3D reconstruction outputs
 *.ply
 *.obj
 *.glb
+*.gltf
+*.bin
+
+# Model/checkpoint files
 *.ckpt
 *.pt
 *.pth
+*.onnx
 
 # Cache folders
 .cache/
 .pytest_cache/
 .mypy_cache/
+.ruff_cache/
+
+# Docker/local artifacts
+*.pid
 
 # IDE/editor files
 .vscode/
